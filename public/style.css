@@ -1,0 +1,267 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo img {
+    object-fit: contain;
+    height: 100px;
+}
+
+.panel {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d7;
+    cursor: pointer;
+
+}
+
+button#start {
+    background-color: #00ff00;
+    color:black
+}
+
+button#stop {
+    background-color: red;
+    color: white;
+}
+
+button#reset {
+    background-color: yellow;
+    color: black;
+}
+
+button:disabled {
+    background-color: #dddddd!important;
+    color:white!important;
+    opacity: 0.5;
+}
+
+
+
+.title {
+    display: none;
+}
+
+.table {
+    display: flex;
+    margin: auto;
+    padding: 10px;
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+  
+  th, td {
+    border: 1px solid black;
+  }
+
+  tr:nth-child(1) td {
+    width: 200px;
+  }
+
+.eq{
+    font-size: 18px;
+    text-align: center;
+    /* border: 1px solid gray; */
+    border-radius: 5px;
+    color:#ff8b25
+}
+
+.eq-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+label {
+    /* display: inline-block; */
+    margin-bottom: 0
+}
+.select-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.select-time input {
+    width:4rem;
+    font-size: 16px;
+}
+#myTab {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+}
+.select-time-item{
+    margin-left: 10px;
+}
+
+
+.chart-item {
+    width: 80%;
+    margin: 0 auto;
+}
+.nav-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.detail-info{
+    /* width: calc(100% - 100px); */
+    position: relative;
+}
+.info{
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+}
+
+.nav-item {
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #c0c5ff;
+    transition: all ease 0.5s;
+}
+
+.nav-item:hover {
+    background-color: #ffff37;
+}
+.monitor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 10px;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    background-color: lavender;
+}
+.monitor-left {
+    padding-right: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #0016ff;
+}
+.monitor-right {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.detail-info-item{
+    /* visibility: visible; */
+
+    /* position: absolute; */
+    /* pointer-events: all; */
+
+}
+
+.detail-info-item.hide{
+   display: none;
+    /* pointer-events: none; */
+}
+
+
+
+.nav-item.active {
+    background-color: #d6d6f9;
+}
+input#submit,
+input#run {
+    font-weight: bold;
+}
+
+#select-angle{
+    margin-bottom: 8px;
+}
+@media only screen and (max-width: 600px) {
+    body {
+      font-size: 16px;
+    }
+
+    button {
+        font-size: 2rem;
+        width: 100%;
+    }
+    .monitor {
+        height: unset;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .nav-item {
+        font-size: 14px;
+      
+    }
+    .monitor-left {
+        padding-right: 0;
+        border-right: none;
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .panel {
+
+        width: 100%;
+    }
+
+    .table {
+        width: unset;
+        overflow: scroll;
+        margin: 10px auto;
+    }
+
+
+    .select-time {
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+    .select-time-item {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+        width: 30%;
+    }
+    .select-time-item:nth-child(1) {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 6px;
+        border-bottom: 1px solid red;
+        padding-bottom: 2px;
+    }
+    .select-time input {
+        width: 100%;
+        font-size: 16px;
+    }
+    .chart-item {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    
+  }

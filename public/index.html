@@ -1,0 +1,122 @@
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Thí nghiệm - Luận Văn</title>
+
+</head>
+
+<body>
+
+    <div class="monitor">
+
+        <div class="monitor-left">
+            <div class="panel">
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <button id="reset">Reset</button>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="monitor-right">
+            <form class="select-time" action="">
+                <div class="select-time-item">
+                    <label for="">Max time:</label> <span id="max-time">0</span> ms
+                </div>
+                <div class="select-time-item">
+                    <label for="startTime">Start</label>
+                    <input type="number" name="startTime" id="startTime" value="0" max="0" min="0">
+                </div>
+                <div class="select-time-item">
+                    <label for="endTime">End</label>
+                    <input type="number" name="endTime" id="endTime" value="1000" max="0" min="0">
+                </div>
+                <div class="select-time-item">
+                    <input id="submit" type="button" value="OK">
+                </div>
+
+
+            </form>
+            <div id="select-angle">
+                <label for="angle">Góc nghiêng </label> 
+                <input type="number" name="angle" id="angle" value="10" max="45" min="10"> độ
+                <input id="run" type="button" value="RUN">
+            </div>
+
+            <div class="nav-info">
+                <div class="nav-item">Bảng số liệu</div>
+                <div class="nav-item">Tọa độ</div>
+                <div class="nav-item">Vận tốc</div>
+                <div class="nav-item">Gia tốc</div>
+
+            </div>
+          
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="info">
+
+        <div class="detail-info">
+            <div id="abc" class="detail-info-item">
+                <div class="table" id="table"></div>
+            </div>
+            <div class="detail-info-item">
+                <div class="chart-item">
+                    <!-- <div id="chart1Main"></div> -->
+                    <div id="chart1"></div>
+
+                    <div class="eq" id="eq">
+                        Phương trình: x = <span id="eq_s"></span> <span>\((m)\)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-info-item">
+                <div class="chart-item">
+                    <div id="chart2"></div>
+
+                </div>
+            </div>
+            <div class="detail-info-item">
+                <div class="chart-item">
+                    <div id="chart3"></div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC1ZBTqMnWPFe7nx57DLRJs1yD-2SDLzHc",
+            databaseURL: "https://thanhgiau170297-default-rtdb.asia-southeast1.firebasedatabase.app",
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.database();
+    </script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
