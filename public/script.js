@@ -9,6 +9,47 @@ var a = 0
 var v0 = 0
 var cof = []
 
+
+
+// const HH = 500-20-10
+// const H = 70
+// const MaxMotor = 10500
+// const lengthSlide = 1000
+const HH = 900
+const H = 0
+const MaxMotor = 2500
+const lengthSlide = 1000
+
+function setNewPos(angle) {
+	console.log(angle)
+
+	firebase.database().ref('/motor1/pos').once('value').then((snapshot) => {
+		let posCurrent = snapshot.val();
+		
+		var hmax = HH-H
+		var coff = MaxMotor/hmax
+		var h = HH - lengthSlide * Math.sin(angle / 180 * Math.PI)
+		var pos = h*coff
+		var diff = Math.round(pos - posCurrent)
+		console.log(posCurrent)
+		console.log(diff)
+
+		if (diff < 0) {
+			db.ref().update({ 'motor1/run': 1 })
+			db.ref().update({ 'motor1/steps': Math.abs(diff) })
+			db.ref().update({ 'motor1/dir': 1 })
+		}
+		if (diff > 0) {
+			db.ref().update({ 'motor1/run': 1 })
+			db.ref().update({ 'motor1/steps': Math.abs(diff) })
+			db.ref().update({ 'motor1/dir': 0 })
+		}
+
+
+	})
+}
+
+
 function createTable(tableData, table_id) {
 
 	var table = document.createElement('table');
@@ -236,6 +277,14 @@ function Relayout() {
 	Plotly.relayout('chart3', update3)
 }
 
+function Delay(ms) {
+	var start = Date.now(),
+		now = start;
+	while (now - start < ms) {
+		now = Date.now();
+	}
+}
+
 function Init() {
 	$(".eq").hide();
 
@@ -244,7 +293,11 @@ function Init() {
 	$("#stop").hide()
 
 
+	$('#run').click(function () {
+		var alpha = $('#angle').val()
+		setNewPos(alpha)
 
+	})
 
 	$("#start").click(function () {
 
@@ -258,11 +311,33 @@ function Init() {
 
 	$("#stop").click(function () {
 		$("#start").hide()
-		$("#reset").hide();
+		$("#reset").show();
 		$("#stop").hide()
 
 		db.ref().update({ 'states/startGetvalue': 0 })
 		db.ref().update({ 'states/stopGetvalue': 1 })
+
+
+		db.ref().update({ 'motor2/steps': 2500 })
+		db.ref().update({ 'motor2/dir': 0 })
+		db.ref().update({ 'motor2/run': 1 })
+		
+		Delay(100)
+		var once = false;
+		back()
+		function back() {
+			firebase.database().ref('motor2/run').on('value', (snapshot) => {
+				let data = snapshot.val();
+				if (data == 0) {
+					if (!once) {
+						once = true
+						db.ref().update({ 'motor2/steps': 2500 })
+						db.ref().update({ 'motor2/dir': 1 })
+						db.ref().update({ 'motor2/run': 1 })
+					}
+				}
+			});
+		}
 	});
 
 
@@ -319,7 +394,6 @@ doneEvent.on('value', (snapshot) => {
 
 
 });
-
 
 function getDone() {
 	$("#start").hide()
