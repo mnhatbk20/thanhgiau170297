@@ -7,103 +7,163 @@
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="/style.css">
+    <script src="js.cookie.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Thí nghiệm - Luận Văn</title>
 
 </head>
 
 <body>
 
-    <div class="monitor">
+    <div id="screen1">
+        <div class="logo-wrapper">
+            <div class="logo">
+                <img src="logo1.png" alt="">
+            </div>
+            <div class="logo" id="logo2">
+                <img src="logo2.png" alt="">
+            </div>
+        </div>
+        <div class="content">
+            <h3 class=" ">BỘ GIÁO DỤC VÀ ĐÀO TẠO <br>
+                TRƯỜNG ĐẠI HỌC SƯ PHẠM TP. HỒ CHÍ MINH
+            </h3>
+            <h4>
+                LUẬN VĂN THẠC SĨ
+            </h4>
+            <h5>
+                Xây dựng và sử dụng thí nghiệm nghiên cứu “Chuyển động thẳng biến đổi đều” – Vật lý 10 có kết nối với
+                điện thoại thông minh nhằm bồi dưỡng năng lực thực nghiệm của học sinh.
 
-        <div class="monitor-left">
-            <div class="panel">
-                <button id="start">Start</button>
-                <button id="stop">Stop</button>
-                <button id="reset">Reset</button>
+            </h5>
 
+            <div class="author">
+                <div class="span">
+                    Người hướng dẫn khoa học: TS. Trần Ngọc Chất <br>
+                    Học viên: Trần Thị Thanh Giàu
 
-
+                </div>
             </div>
 
         </div>
 
-        <div class="monitor-right">
-            <div id="select-angle">
-                <label for="angle">Góc nghiêng </label> 
-                <input type="number" name="angle" id="angle" value="10" max="45" min="10"> độ
-                <input id="run" type="button" value="RUN">
-                <input id="restore" type="button" value="Khôi phục vị trí xe">
+        <div class="form">
+
+            <div class="group-input">
+                <label for="username">Tên Đăng Nhập</label>
+                <input type="text" name="username" id="username">
             </div>
-         
-            <form class="select-time" action="">
-                <div class="select-time-item">
-                    <label for="">Max time:</label> <span id="max-time">0</span> ms
-                </div>
-                <div class="select-time-item">
-                    <label for="startTime">Start</label>
-                    <input type="number" name="startTime" id="startTime" value="0" max="0" min="0">
-                </div>
-                <div class="select-time-item">
-                    <label for="endTime">End</label>
-                    <input type="number" name="endTime" id="endTime" value="1000" max="0" min="0">
-                </div>
-                <div class="select-time-item">
-                    <input id="submit" type="button" value="OK">
-                </div>
-
-
-            </form>
-      
-
-
-            <div class="nav-info">
-                <div class="nav-item">Bảng số liệu</div>
-                <div class="nav-item">Tọa độ</div>
-                <div class="nav-item">Vận tốc</div>
-                <div class="nav-item">Gia tốc</div>
-
+            <div class="group-input">
+                <label for="password">Mật khẩu</label>
+                <input type="password" name="password" id="password">
             </div>
-          
 
+            <button id="login">
+                Đăng Nhập
+            </button>
 
         </div>
 
 
     </div>
+    <div id="screen2" class="notlogin">
+        <div class="monitor">
+
+            <div class="monitor-left">
+                <div class="panel">
+                    <button id="start">Start</button>
+                    <button id="stop">Stop</button>
+                    <button id="reset">Reset</button>
 
 
-    <div class="info">
 
-        <div class="detail-info">
-            <div id="abc" class="detail-info-item">
-                <div class="table" id="table"></div>
+                </div>
+
             </div>
-            <div class="detail-info-item">
-                <div class="chart-item">
-                    <!-- <div id="chart1Main"></div> -->
-                    <div id="chart1"></div>
 
-                    <div class="eq" id="eq">
-                        Phương trình: x = <span id="eq_s"></span> <span>\((m)\)</span>
+            <div class="monitor-right">
+                <div id="select-angle">
+                    <label for="angle">Góc nghiêng </label>
+                    <input type="number" name="angle" id="angle" value="10" max="45" min="10"> độ
+                    <input id="run" type="button" value="RUN">
+                   
+                </div>
+                <div id="move">
+                    <label for="move">Di chuyển</label>
+                    <input id="move-up" type="button" value="Lên">
+                    <input id="move-down" type="button" value="Xuống">
+                </div>
+
+                <form class="select-time" action="">
+                    <div class="select-time-item">
+                        <label for="">Max time:</label> <span id="max-time">0</span> ms
+                    </div>
+                    <div class="select-time-item">
+                        <label for="startTime">Start</label>
+                        <input type="number" name="startTime" id="startTime" value="0" max="0" min="0">
+                    </div>
+                    <div class="select-time-item">
+                        <label for="endTime">End</label>
+                        <input type="number" name="endTime" id="endTime" value="1000" max="0" min="0">
+                    </div>
+                    <div class="select-time-item">
+                        <input id="submit" type="button" value="OK">
+                    </div>
+
+
+                </form>
+
+
+
+                <div class="nav-info">
+                    <div class="nav-item">Bảng số liệu</div>
+                    <div class="nav-item">Tọa độ</div>
+                    <div class="nav-item">Vận tốc</div>
+                    <div class="nav-item">Gia tốc</div>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="detail-info">
+                <div id="abc" class="detail-info-item">
+                    <div class="table" id="table"></div>
+                </div>
+                <div class="detail-info-item">
+                    <div class="chart-item">
+                        <!-- <div id="chart1Main"></div> -->
+                        <div id="chart1"></div>
+
+                        <div class="eq" id="eq">
+                            Phương trình: x = <span id="eq_s"></span> <span>\((m)\)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-info-item">
+                    <div class="chart-item">
+                        <div id="chart2"></div>
+
+                    </div>
+                </div>
+                <div class="detail-info-item">
+                    <div class="chart-item">
+                        <div id="chart3"></div>
+
                     </div>
                 </div>
             </div>
-            <div class="detail-info-item">
-                <div class="chart-item">
-                    <div id="chart2"></div>
 
-                </div>
-            </div>
-            <div class="detail-info-item">
-                <div class="chart-item">
-                    <div id="chart3"></div>
-
-                </div>
-            </div>
         </div>
-
     </div>
+
 
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/regression/2.0.1/regression.min.js"></script>
@@ -120,7 +180,8 @@
 
         const db = firebase.database();
     </script>
-    <script src="/script.js"></script>
+    <script src="login.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
