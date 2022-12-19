@@ -25,11 +25,12 @@ function setNewPos(angle) {
 
 	firebase.database().ref('/motor1/pos').once('value').then((snapshot) => {
 		let posCurrent = snapshot.val();
-		
-		var hmax = HH-H
-		var coff = MaxMotor/hmax
+
+
+		var hmax = HH - H
+		var coff = MaxMotor / hmax
 		var h = HH - lengthSlide * Math.sin(angle / 180 * Math.PI)
-		var pos = h*coff
+		var pos = h * coff
 		var diff = Math.round(pos - posCurrent)
 		console.log(posCurrent)
 		console.log(diff)
@@ -285,6 +286,31 @@ function Delay(ms) {
 	}
 }
 
+function Restore() {
+
+	db.ref().update({ 'motor2/steps': 2500 })
+	db.ref().update({ 'motor2/dir': 0 })
+	db.ref().update({ 'motor2/run': 1 })
+
+	Delay(100)
+	var once = false;
+	back()
+	function back() {
+		firebase.database().ref('motor2/run').on('value', (snapshot) => {
+			let data = snapshot.val();
+			if (data == 0) {
+				if (!once) {
+					once = true
+					db.ref().update({ 'motor2/steps': 2500 })
+					db.ref().update({ 'motor2/dir': 1 })
+					db.ref().update({ 'motor2/run': 1 })
+				}
+			}
+		});
+	}
+
+}
+
 function Init() {
 	$(".eq").hide();
 
@@ -309,6 +335,7 @@ function Init() {
 		db.ref().update({ 'states/stopGetvalue': 0 })
 	});
 
+
 	$("#stop").click(function () {
 		$("#start").hide()
 		$("#reset").show();
@@ -316,29 +343,12 @@ function Init() {
 
 		db.ref().update({ 'states/startGetvalue': 0 })
 		db.ref().update({ 'states/stopGetvalue': 1 })
+		Restore()
 
-
-		db.ref().update({ 'motor2/steps': 2500 })
-		db.ref().update({ 'motor2/dir': 0 })
-		db.ref().update({ 'motor2/run': 1 })
-		
-		Delay(100)
-		var once = false;
-		back()
-		function back() {
-			firebase.database().ref('motor2/run').on('value', (snapshot) => {
-				let data = snapshot.val();
-				if (data == 0) {
-					if (!once) {
-						once = true
-						db.ref().update({ 'motor2/steps': 2500 })
-						db.ref().update({ 'motor2/dir': 1 })
-						db.ref().update({ 'motor2/run': 1 })
-					}
-				}
-			});
-		}
 	});
+
+	$("#restore").click(Restore);
+
 
 
 	$("#reset").click(function () {

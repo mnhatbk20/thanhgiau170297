@@ -190,7 +190,8 @@ label {
     background-color: #d6d6f9;
 }
 input#submit,
-input#run {
+input#run,
+input#restore {
     font-weight: bold;
 }
 
