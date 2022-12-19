@@ -3,41 +3,45 @@
     justify-content: center;
     align-items: center;
 }
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#screen1.login{
+#screen1.login {
     position: absolute;
     top: -1000000;
 }
-#screen1{
+
+#screen1 {
     position: static;
     top: unset;
 }
+
 #screen2.notlogin {
     position: absolute;
     top: -1000000;
 }
+
 #screen2 {
     position: static;
     top: unset;
 }
 
-#screen1 h3{
+#screen1 h3 {
     text-align: center;
     color: #0054a6;
 }
 
-#screen1 h4{
+#screen1 h4 {
     color: brown;
     text-align: center;
 
 }
 
-#screen1 h5{
+#screen1 h5 {
     font-size: 0.9em;
     text-align: center;
 
@@ -47,19 +51,23 @@ body {
 #screen1 .logo-wrapper {
     width: 22%;
 }
+
 #screen1 .content {
     padding: 0 8%;
     box-sizing: border-box;
     width: 78%;
 }
-#screen1 .logo img{
+
+#screen1 .logo img {
     object-fit: contain;
     width: 100%;
 }
-#screen1 #logo2{
+
+#screen1 #logo2 {
     width: 100px;
 
-}  
+}
+
 .author {
     width: 100%;
     text-align: right;
@@ -68,6 +76,7 @@ body {
     font-weight: bold;
     font-style: italic;
 }
+
 #screen1 .form {
     width: 100%;
     display: flex;
@@ -86,6 +95,7 @@ body {
     /* justify-content: center; */
     flex-wrap: wrap;
 }
+
 #screen1 .form input {
     margin-bottom: 0.8em;
     width: 100%;
@@ -95,6 +105,7 @@ body {
     border-radius: 6px;
     margin-top: 0.2em;
 }
+
 button#login {
     background-color: #0054a6;
     color: white;
@@ -102,6 +113,7 @@ button#login {
     width: 8em;
     margin: auto;
 }
+
 #screen1 {
     display: flex;
     width: 50vw;
@@ -131,7 +143,7 @@ button {
 
 button#start {
     background-color: #00ff00;
-    color:black
+    color: black
 }
 
 button#stop {
@@ -145,8 +157,8 @@ button#reset {
 }
 
 button:disabled {
-    background-color: #dddddd!important;
-    color:white!important;
+    background-color: #dddddd !important;
+    color: white !important;
     opacity: 0.5;
 }
 
@@ -167,21 +179,22 @@ table {
     border-collapse: collapse;
     margin: auto;
 }
-  
-  th, td {
+
+th,
+td {
     border: 1px solid black;
-  }
+}
 
-  tr:nth-child(1) td {
+tr:nth-child(1) td {
     width: 200px;
-  }
+}
 
-.eq{
+.eq {
     font-size: 18px;
     text-align: center;
     /* border: 1px solid gray; */
     border-radius: 5px;
-    color:#ff8b25
+    color: #ff8b25
 }
 
 .eq-wrapper {
@@ -197,6 +210,7 @@ label {
     /* display: inline-block; */
     margin-bottom: 0
 }
+
 .select-time {
     display: flex;
     justify-content: center;
@@ -207,15 +221,17 @@ label {
 }
 
 .select-time input {
-    width:4rem;
+    width: 4rem;
     font-size: 16px;
 }
+
 #myTab {
     /* position: relative; */
     display: flex;
     justify-content: center;
 }
-.select-time-item{
+
+.select-time-item {
     margin-left: 10px;
 }
 
@@ -224,16 +240,19 @@ label {
     width: 80%;
     margin: 0 auto;
 }
+
 .nav-info {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.detail-info{
+
+.detail-info {
     /* width: calc(100% - 100px); */
     position: relative;
 }
-.info{
+
+.info {
     /* display: flex; */
     /* flex-wrap: nowrap; */
 }
@@ -249,6 +268,7 @@ label {
 .nav-item:hover {
     background-color: #ffff37;
 }
+
 .monitor {
     display: flex;
     justify-content: center;
@@ -260,12 +280,14 @@ label {
     border-radius: 10px;
     background-color: lavender;
 }
+
 .monitor-left {
     padding-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .monitor-right {
     height: 100%;
     display: flex;
@@ -277,7 +299,7 @@ label {
 
 }
 
-.detail-info-item{
+.detail-info-item {
     /* visibility: visible; */
 
     /* position: absolute; */
@@ -285,8 +307,8 @@ label {
 
 }
 
-.detail-info-item.hide{
-   display: none;
+.detail-info-item.hide {
+    display: none;
     /* pointer-events: none; */
 }
 
@@ -295,43 +317,49 @@ label {
 .nav-item.active {
     background-color: #d6d6f9;
 }
+
 input#submit,
 input#run,
 input#restore {
     font-weight: bold;
 }
 
-#select-angle{
+#select-angle {
     margin-bottom: 8px;
 }
-#move{
+
+#move {
     margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 600px) {
     body {
-      font-size: 16px;
+        font-size: 16px;
     }
 
     button {
         font-size: 2rem;
         width: 100%;
     }
+
     .monitor {
         height: unset;
         flex-direction: column;
         margin-bottom: 10px;
     }
+
     .nav-item {
         font-size: 14px;
-      
+
     }
+
     .monitor-left {
         padding-right: 0;
         border-right: none;
         margin-bottom: 12px;
         width: 100%;
     }
+
     .panel {
 
         width: 100%;
@@ -349,6 +377,7 @@ input#restore {
         flex-wrap: wrap;
         align-items: flex-end;
     }
+
     .select-time-item {
         margin-left: 0;
         display: flex;
@@ -357,6 +386,7 @@ input#restore {
         justify-content: flex-end;
         width: 30%;
     }
+
     .select-time-item:nth-child(1) {
         width: 100%;
         flex-direction: row;
@@ -365,14 +395,67 @@ input#restore {
         border-bottom: 1px solid red;
         padding-bottom: 2px;
     }
+
     .select-time input {
         width: 100%;
         font-size: 16px;
     }
+
     .chart-item {
         width: 100%;
         margin: 0 auto;
     }
 
-    
-  }
+    #screen1 {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    #screen1 .logo-wrapper {
+        width: 100%;
+        /* height: 21px; */
+        /* flex-direction: row; */
+        display: flex;
+        justify-content: center;
+    }
+
+    #screen1 .content {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    #screen1 h3 {
+        font-size: 0.8em;
+    }
+
+    #screen1 .logo img {
+        object-fit: contain;
+        width: 80%;
+    }
+
+    #screen1 .form {
+        width: 100%;
+
+        margin-top: 1em;
+
+        padding-top: 1em;
+    }
+
+    .group-input {
+        width: 80%;
+
+    }
+
+    button#login {
+
+        padding: 10px 0px;
+        width: 7em;
+        font-size: 1.1em;
+        border-radius: 21px;
+    }
+
+    .monitor-right {       
+        border-left: 0px solid #0016ff;
+    }
+
+}
