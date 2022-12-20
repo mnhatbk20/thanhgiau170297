@@ -129,13 +129,14 @@ body {
     border-radius: 6px;
     margin-top: 0.2em;
 }
-
 button#login {
     background-color: #0054a6;
     color: white;
     padding: 10px 20px;
-    width: 8em;
+    width: fit-content;
     margin: auto;
+    border-radius: 3em;
+    font-size: 1em;
 }
 #screen1 {
     display: flex;
