@@ -30,6 +30,11 @@ body {
     top: unset;
 }
 
+#move-up, #move-down {
+    width: 5em;
+    font-weight: bold;
+}
+
 #screen1 h3 {
     text-align: center;
     color: #0054a6;
