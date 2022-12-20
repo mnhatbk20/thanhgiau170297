@@ -558,4 +558,7 @@ input#restore {
         border-left: 0px solid #0016ff;
     }
 
+    .nav-meas-item {
+        width: 100%;
+    }
 }
