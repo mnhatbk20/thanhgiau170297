@@ -80,8 +80,8 @@ function createTable(tableData, table_id) {
 
 
 	table.appendChild(tableBody);
-	$(`#abc #${table_id}`).html('')
-	$(`#abc #${table_id}`).append(table);
+	$(`#${table_id}`).html('')
+	$(`#${table_id}`).append(table);
 }
 
 function ShowEq() {
@@ -347,6 +347,11 @@ function Init() {
 		db.ref().update({ 'states/stopGetvalue': 1 })
 		Restore()
 
+
+		// MOCK
+		getDoneMOCK();
+		// 
+
 	});
 
 	$("#move-up").click(function () {
@@ -366,27 +371,69 @@ function Init() {
 		location.reload();
 	});
 
-	$('.detail-info-item').addClass('hide')
-	$('.detail-info-item').eq(0).removeClass('hide')
-	$(".nav-item").eq(0).addClass('active')
 
-	$(".nav-item").each(function (index) {
+
+	$('.detail-info-item').addClass('hide')
+	ActiveNav()
+
+}
+
+var state = 0
+function ActiveNav() {
+	$(".nav-meas-item").each(function (index) {
+		var sw = false
 
 		$(this).click(function (e) {
+
+
 			e.preventDefault();
-			$('.detail-info-item').addClass('hide')
-			$('.detail-info-item').eq(index).removeClass('hide')
-			$(".nav-item").removeClass('active')
-			$(".nav-item").eq(index).addClass('active')
 
+			sw = !sw
+			if (sw == true) {
 
-			// if (index >=1){
-			// 	$(`#chart${index} a[data-val*="reset"]`)[0].click()
-			// }
+				state = index + 1
+				$('.detail-info-item').addClass('hide')
+				$('.detail-info-item').eq(index).removeClass('hide')
+				$(".nav-meas-item").removeClass('active')
+				$(".nav-meas-item").eq(index).addClass('active')
+				$(".nav-data").removeClass("hide")
+			} else {
+				state = 0
+				$('.detail-info-item').addClass('hide')
+				$(".nav-meas-item").addClass('active')
+				$(".nav-data").addClass("hide")
+
+			}
+
+			Relayout()
+
+			if (state == 3) {
+				$("#nav-data-table").addClass("hide")
+			} else {
+				$("#nav-data-table").removeClass("hide")
+			}
 
 		});
 	});
+
+	$(".nav-data-item").each(function (index) {
+		$(this).click(function (e) {
+			e.preventDefault();
+			$('.detail-info-item-child').addClass('hide')
+			console.log($(this).attr("data-name"))
+			$(`.${$(this).attr("data-name")}`).removeClass('hide')
+
+			$(".nav-data-item").removeClass('active')
+			$(".nav-data-item").eq(index).addClass('active')
+			Relayout()
+
+
+		});
+	});
+
+
 }
+
 
 var maxLength = 0;
 
@@ -417,8 +464,11 @@ doneEvent.on('value', (snapshot) => {
 });
 
 
-function drawFull(startTime,endTime){
-	
+
+
+
+function drawFull(startTime, endTime) {
+
 	tempdataY_segment = []
 	tempdataX_segment = []
 
@@ -430,6 +480,8 @@ function drawFull(startTime,endTime){
 	tempdataY_segment.forEach(function (item, index) {
 		tempdataX_segment.push(index * delayESP)
 	})
+
+
 
 	CalculateData_V(tempdataY_segment);
 	// CalculateData_A(dataY2);
@@ -458,13 +510,17 @@ function drawFull(startTime,endTime){
 	Draw([0, (dataY3.length - 1) * delayESP], [-5, 5], dataX3, dataY3, '', 'Thời gian (ms)', 'Gia tốc (m/s^2', 'chart3')
 
 
-	var dataTable = []
-	maxLength = tempdataY_segment.length
-	dataTable.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
-	dataTable.push(DataRow(function (i) { return round(tempdataY_segment[i], 2) }, "Tọa độ (mm)", stepPoint))
-	dataTable.push(DataRow(function (i) { return round(dataY2[i], 2) }, "Vận tốc (m/s)", stepPoint))
 
-	createTable(dataTable, 'table');
+	maxLength = tempdataY_segment.length
+
+	var dataTable1 = []
+	dataTable1.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+	dataTable1.push(DataRow(function (i) { return round(dataY1[i], 2) }, "Tọa độ (mm)", stepPoint))
+	createTable(dataTable1, 'table1');
+	var dataTable2 = []
+	dataTable2.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+	dataTable2.push(DataRow(function (i) { return round(dataY2[i], 2) }, "Vận tốc (m/s)", stepPoint))
+	createTable(dataTable2, 'table2');
 	ShowEq()
 
 	expectedX = []
@@ -478,18 +534,22 @@ function drawFull(startTime,endTime){
 
 	Relayout()
 
-	$(".nav-item").each(function (index) {
+	$(".nav-data-item").each(function (index) {
+
 		$(this).click(function (e) {
 			e.preventDefault();
-			$('.detail-info-item').addClass('hide')
-			$('.detail-info-item').eq(index).removeClass('hide')
-			$(".nav-item").removeClass('active')
-			$(".nav-item").eq(index).addClass('active')
 
+			$('.detail-info-item-child').addClass('hide')
+			console.log($(this).attr("data-name"))
+			$(`.${$(this).attr("data-name")}`).removeClass('hide')
+
+			$(".nav-data-item").removeClass('active')
+			$(".nav-data-item").eq(index).addClass('active')
 			Relayout()
 
 		});
 	});
+
 }
 
 function getDone() {
@@ -510,27 +570,76 @@ function getDone() {
 		$('.select-time-item input[name=endTime]').attr('value', `${maxLength}`)
 
 
-		// CalculateData_S(data);
-		// Draw([0, (maxLength - 1) * delayESP], [0, 1000], dataX1, dataY1, '', 'Thời gian (ms)', 'Tọa độ (mm)', 'chart1')
+		CalculateData_S(data);
 
 		var startTime = parseInt($('#startTime').val())
 		var endTime = parseInt($('#endTime').val())
-		drawFull(startTime,endTime)
+		drawFull(startTime, endTime)
 
 
 		$('#submit').click(function (e) {
 			e.preventDefault();
 			var startTime = parseInt($('#startTime').val())
 			var endTime = parseInt($('#endTime').val())
-			drawFull(startTime,endTime)
+			drawFull(startTime, endTime)
 
 		});
-		var dataTable = []
-		dataTable.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
-		dataTable.push(DataRow(function (i) { return round(dataY1[i], 2) }, "Tọa độ (mm)", stepPoint))
-		createTable(dataTable, 'table');
+		var dataTable1 = []
+		dataTable1.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+		dataTable1.push(DataRow(function (i) { return round(dataY1[i], 2) }, "Tọa độ (mm)", stepPoint))
+		createTable(dataTable1, 'table1');
+		var dataTable2 = []
+		dataTable2.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+		dataTable2.push(DataRow(function (i) { return round(dataY2[i], 2) }, "Vận tốc (m/s)", stepPoint))
+		createTable(dataTable2, 'table2');
 
 	});
+}
+
+
+
+function getDoneMOCK() {
+	$("#start").hide()
+	$("#reset").show();
+	$("#stop").hide()
+	let data = []
+
+	for (let i = 0; i < 10000; i++) {
+		data.push(i * i * 0.0001)
+	}
+
+
+	maxLength = data.length
+	$('#max-time').text(`${maxLength}`)
+	$('.select-time-item input').attr('max', `${maxLength}`)
+	$('.select-time-item input[name=endTime]').attr('max', `${maxLength}`)
+	$('.select-time-item input[name=endTime]').attr('value', `${maxLength}`)
+
+
+	CalculateData_S(data);
+
+	var startTime = parseInt($('#startTime').val())
+	var endTime = parseInt($('#endTime').val())
+	drawFull(startTime, endTime)
+
+
+	$('#submit').click(function (e) {
+		e.preventDefault();
+		var startTime = parseInt($('#startTime').val())
+		var endTime = parseInt($('#endTime').val())
+		drawFull(startTime, endTime)
+
+	});
+	var dataTable1 = []
+	dataTable1.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+	dataTable1.push(DataRow(function (i) { return round(dataY1[i], 2) }, "Tọa độ (mm)", stepPoint))
+	createTable(dataTable1, 'table1');
+	var dataTable2 = []
+	dataTable2.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
+	dataTable2.push(DataRow(function (i) { return round(dataY2[i], 2) }, "Vận tốc (m/s)", stepPoint))
+	createTable(dataTable2, 'table2');
+
+
 }
 
 

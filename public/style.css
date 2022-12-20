@@ -8,6 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 #screen1.login {
@@ -30,7 +32,8 @@ body {
     top: unset;
 }
 
-#move-up, #move-down {
+#move-up,
+#move-down {
     width: 5em;
     font-weight: bold;
 }
@@ -76,7 +79,6 @@ body {
 .author {
     width: 100%;
     text-align: right;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8em;
     font-weight: bold;
     font-style: italic;
@@ -137,10 +139,67 @@ button#login {
     border-color: red;
     width: fit-content;
 }
+#logout:hover{
+    background-color: red;
+    color:white
+}
 
-#alert{
+#alert {
     color: red;
     margin-top: 0.6em;
+}
+
+.nav-meas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .nav-meas-item.active, */
+.nav-meas-item{
+    width: 500px;
+    text-align: center;
+    padding: 0.5em 0;
+    background-color: gray;
+    margin: 0.2em 0;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    box-shadow: 0 0 3.2px 0 black;
+    display: none;
+
+}
+.nav-meas-icon{
+    cursor: pointer;
+    font-size: 2em;
+}
+.nav-meas-item.active{
+    display: block;
+}
+
+.nav-meas-item:hover {
+    box-shadow: 0 0 3.2px 0 black;
+}
+
+.nav-data{
+    display: flex;
+    justify-content: center;
+}
+
+.nav-data-item {
+    /* width: 7em; */
+    text-align: center;
+    padding: 0.5em 1em;
+    background-color: #0054a6;
+    color: #ffffff;
+    margin: 0 0.1em;
+    cursor: pointer;
+}
+.nav-data-item.active{
+    background-color: #002850;
 }
 
 #screen2 .top-nav {
@@ -248,12 +307,10 @@ label {
     align-items: center;
     margin-bottom: 10px;
     width: 100%;
-    font-size: 16px;
 }
 
 .select-time input {
     width: 4rem;
-    font-size: 16px;
 }
 
 #myTab {
@@ -286,16 +343,26 @@ label {
 .info {
     /* display: flex; */
     /* flex-wrap: nowrap; */
+    margin-top: 1em;
 }
 
 .nav-item {
-    font-size: 20px;
     padding: 5px 10px;
     cursor: pointer;
     background-color: #c0c5ff;
     transition: all ease 0.5s;
 }
 
+#nav-meas-v {
+    background-color: #ff6a6a;
+
+}
+#nav-meas-a {
+    background-color: #e4a13ade;
+}
+#nav-meas-s {
+    background-color: #26c06c;
+}
 .nav-item:hover {
     background-color: #ffff37;
 }
@@ -327,23 +394,25 @@ label {
     flex-wrap: wrap;
     flex-direction: column;
     border-left: 1px solid #0016ff;
-
+    font-size: 1em;
 }
 
-.detail-info-item {
-    /* visibility: visible; */
-
-    /* position: absolute; */
-    /* pointer-events: all; */
-
-}
 
 .detail-info-item.hide {
     display: none;
     /* pointer-events: none; */
 }
 
+.detail-info-item-child.hide{
+    display: none;
+}
+.nav-data.hide{
+    display: none;
+}
 
+#nav-data-table.hide{
+    display: none;
+}
 
 .nav-item.active {
     background-color: #d6d6f9;

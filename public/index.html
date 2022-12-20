@@ -39,7 +39,7 @@
             <div class="author">
                 <div class="span">
                     Người hướng dẫn khoa học: TS. Trần Ngọc Chất <br>
-                    Học viên: <a href="https://www.facebook.com/thanhgiau.tran.71">Trần Thị Thanh Giàu</a> 
+                    Học viên: <a href="https://www.facebook.com/thanhgiau.tran.71">Trần Thị Thanh Giàu</a>
 
                 </div>
             </div>
@@ -113,32 +113,41 @@
 
                 </form>
 
-
-
-                <div class="nav-info">
-                    <div class="nav-item">Bảng số liệu</div>
-                    <div class="nav-item">Tọa độ</div>
-                    <div class="nav-item">Vận tốc</div>
-                    <div class="nav-item">Gia tốc</div>
-
-                </div>
-
-
-
             </div>
 
 
         </div>
 
+        <div class="nav-meas">
+
+      
+            <div id="nav-meas-s" class="nav-meas-item active">
+                Khảo sát tọa độ của vật theo thời gian
+            </div>
+            <div id="nav-meas-v" class="nav-meas-item active">
+                Khảo sát vật tốc của xe chuyển động trên máng nghiêng
+            </div>
+            <div id="nav-meas-a" class="nav-meas-item active">
+                Xác định gia tốc a
+            </div>
+          
+        </div>
+
+        <div class="nav-data hide">
+            <div id="nav-data-table" class="nav-data-item" data-name="table-item">
+                Bảng số liệu </div>
+            <div id="nav-data-chart" class="nav-data-item"  data-name="chart-item">
+                Đồ thị </div>
+        </div>
 
         <div class="info">
 
             <div class="detail-info">
-                <div id="abc" class="detail-info-item">
-                    <div class="table" id="table"></div>
-                </div>
                 <div class="detail-info-item">
-                    <div class="chart-item">
+                    <div id="table1" class="detail-info-item-child table-item">
+
+                    </div>
+                    <div class="chart-item detail-info-item-child">
                         <!-- <div id="chart1Main"></div> -->
                         <div id="chart1"></div>
 
@@ -148,13 +157,17 @@
                     </div>
                 </div>
                 <div class="detail-info-item">
-                    <div class="chart-item">
+                    <div id="table2" class="detail-info-item-child  table-item">
+
+                    </div>
+                    <div class="chart-item detail-info-item-child">
                         <div id="chart2"></div>
 
                     </div>
                 </div>
                 <div class="detail-info-item">
-                    <div class="chart-item">
+                
+                    <div class="chart-item detail-info-item-child">
                         <div id="chart3"></div>
 
                     </div>
