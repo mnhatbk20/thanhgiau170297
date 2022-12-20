@@ -9,9 +9,21 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-
+    padding: 0;
+    margin: 0;
+    background-image: url('cropped-dustin-lee-jLwVAUtLOAQ-unsplash-scaled-2.jpg');
 }
 
+#giaucute {
+    height: 100vh;
+}
+#giaucute div{
+    height: 100%;
+}
+#giaucute img{
+    object-fit: cover;
+    height: 100%;
+}
 #screen1.login {
     position: absolute;
     top: -1000000;
@@ -88,12 +100,17 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.line {
     border-top: 1px solid #ff8901;
-    padding-top: 60px;
+    width: 100%;
+    height: 0;
+    /* margin-top: 1em; */
+    margin: 4em 0;
 }
 
 .group-input {
@@ -120,13 +137,18 @@ button#login {
     width: 8em;
     margin: auto;
 }
-
 #screen1 {
     display: flex;
-    width: 50vw;
-    font-family: Arial;
-    padding-top: 100px;
+    width: 59vw;
     flex-wrap: wrap;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2em;
+    background-color: #ffffffde;
+}
+#screen1 .top{
+    display: flex;
 }
 
 #logout {
@@ -135,10 +157,11 @@ button#login {
     cursor: pointer;
     font-size: 0.7em;
     border-radius: 1em;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     border-color: red;
     width: fit-content;
     transition: all ease 0.5s;
+    margin: 0.7em;
 }
 #logout:hover{
     background-color: red;
@@ -210,8 +233,9 @@ button#login {
 
 #screen2 {
     width: 100%;
+    min-height: 100vh;
+    background-color: #131313bd;
 }
-
 #logo img {
     object-fit: contain;
     height: 100px;
@@ -264,12 +288,11 @@ button:disabled {
     padding: 10px;
 }
 
-
 table {
     border-collapse: collapse;
     margin: auto;
+    background-color: white;
 }
-
 th,
 td {
     border: 1px solid black;
@@ -433,6 +456,10 @@ input#restore {
 }
 
 @media only screen and (max-width: 600px) {
+
+    #giaucute{
+        display: none;
+    }
     body {
         font-size: 16px;
     }
@@ -509,8 +536,13 @@ input#restore {
     #screen1 {
         width: 100%;
         padding-top: 0;
+        flex-direction: column;
+        flex-wrap: wrap;
     }
-
+    #screen1 .top{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
     #screen1 .logo-wrapper {
         width: 100%;
         /* height: 21px; */
@@ -535,10 +567,10 @@ input#restore {
 
     #screen1 .form {
         width: 100%;
-
-        margin-top: 1em;
-
-        padding-top: 1em;
+       
+    }
+    .line {
+        margin: 2em 0;
     }
 
     .group-input {

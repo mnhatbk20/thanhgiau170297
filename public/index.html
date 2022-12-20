@@ -8,45 +8,52 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js.cookie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="style.css">
     <title>Thí nghiệm - Luận Văn</title>
 
 </head>
 
 <body>
+
     <div id="screen1">
-        <div class="logo-wrapper">
-            <div class="logo">
-                <img src="logo1.png" alt="">
-            </div>
-            <div class="logo" id="logo2">
-                <img src="logo2.png" alt="">
-            </div>
-        </div>
-        <div class="content">
-            <h3 class=" ">BỘ GIÁO DỤC VÀ ĐÀO TẠO <br>
-                TRƯỜNG ĐẠI HỌC SƯ PHẠM TP. HỒ CHÍ MINH
-            </h3>
-            <h4>
-                LUẬN VĂN THẠC SĨ
-            </h4>
-            <h5>
-                Xây dựng và sử dụng thí nghiệm nghiên cứu “Chuyển động thẳng biến đổi đều” – Vật lý 10 có kết nối với
-                điện thoại thông minh nhằm bồi dưỡng năng lực thực nghiệm của học sinh.
-
-            </h5>
-
-            <div class="author">
-                <div class="span">
-                    Người hướng dẫn khoa học: TS. Trần Ngọc Chất <br>
-                    Học viên: <a href="https://www.facebook.com/thanhgiau.tran.71">Trần Thị Thanh Giàu</a>
-
+        <div class="top">
+            <div class="logo-wrapper animate__animated  animate__fadeIn">
+                <div class="logo">
+                    <img src="logo1.png" alt="">
+                </div>
+                <div class="logo" id="logo2">
+                    <img src="logo2.png" alt="">
                 </div>
             </div>
+            <div class="content">
+                <h3 class="animate__animated animate__fadeIn">BỘ GIÁO DỤC VÀ ĐÀO TẠO <br>
+                    TRƯỜNG ĐẠI HỌC SƯ PHẠM TP. HỒ CHÍ MINH
+                </h3>
+                <h4>
+                    LUẬN VĂN THẠC SĨ
+                </h4>
+                <h5>
+                    Xây dựng và sử dụng thí nghiệm nghiên cứu “Chuyển động thẳng biến đổi đều” – Vật lý 10 có kết nối
+                    với
+                    điện thoại thông minh nhằm bồi dưỡng năng lực thực nghiệm của học sinh.
+
+                </h5>
+
+                <div class="author">
+                    <div class="span">
+                        Người hướng dẫn khoa học: TS. Trần Ngọc Chất <br>
+                        Học viên: <a href="https://www.facebook.com/thanhgiau.tran.71">Trần Thị Thanh Giàu</a>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="form">
+        <div class="line"></div>
+        <div class="form animate__animated  animate__fadeInUp">
 
             <div class="group-input">
                 <label for="username">Tên Đăng Nhập</label>
@@ -62,6 +69,13 @@
             </button>
             <div id="alert"></div>
 
+        </div>
+
+        <div  id="giaucute">
+            <div class="animate__animated animate__bounceInRight" >
+                <img src="cogiao.jpg" alt="">
+
+            </div>
         </div>
 
 
@@ -120,7 +134,7 @@
 
         <div class="nav-meas">
 
-      
+
             <div id="nav-meas-s" class="nav-meas-item active">
                 Khảo sát tọa độ của vật theo thời gian
             </div>
@@ -130,13 +144,13 @@
             <div id="nav-meas-a" class="nav-meas-item active">
                 Xác định gia tốc a
             </div>
-          
+
         </div>
 
         <div class="nav-data hide">
             <div id="nav-data-table" class="nav-data-item" data-name="table-item">
                 Bảng số liệu </div>
-            <div id="nav-data-chart" class="nav-data-item"  data-name="chart-item">
+            <div id="nav-data-chart" class="nav-data-item" data-name="chart-item">
                 Đồ thị </div>
         </div>
 
@@ -166,7 +180,7 @@
                     </div>
                 </div>
                 <div class="detail-info-item">
-                
+
                     <div class="chart-item detail-info-item-child">
                         <div id="chart3"></div>
 
