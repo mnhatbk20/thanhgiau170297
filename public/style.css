@@ -130,7 +130,11 @@ button#login {
 #logout {
     text-align: right;
     color: red;
-    cursor:pointer
+    cursor: pointer;
+    font-size: 0.7em;
+    border-radius: 1em;
+    background-color: #ffffff;
+    border-color: red;
 }
 
 #alert{
