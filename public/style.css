@@ -135,6 +135,7 @@ button#login {
     border-radius: 1em;
     background-color: #ffffff;
     border-color: red;
+    width: fit-content;
 }
 
 #alert{
@@ -145,8 +146,7 @@ button#login {
 #screen2 .top-nav {
     display: flex;
     justify-content: flex-end;
-    
-
+    margin-bottom: 0.5em;
 }
 
 #screen2 {
