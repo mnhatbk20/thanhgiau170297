@@ -138,6 +138,7 @@ button#login {
     background-color: #ffffff;
     border-color: red;
     width: fit-content;
+    transition: all ease 0.5s;
 }
 #logout:hover{
     background-color: red;
@@ -168,7 +169,6 @@ button#login {
     border-radius: 0.5em;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    box-shadow: 0 0 3.2px 0 black;
     display: none;
 
 }
