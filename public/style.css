@@ -122,6 +122,28 @@ button#login {
     flex-wrap: wrap;
 }
 
+#logout {
+    text-align: right;
+    color: red;
+    cursor:pointer
+}
+
+#alert{
+    color: red;
+    margin-top: 0.6em;
+}
+
+#screen2 .top-nav {
+    display: flex;
+    justify-content: flex-end;
+    
+
+}
+
+#screen2 {
+    width: 100%;
+}
+
 #logo img {
     object-fit: contain;
     height: 100px;
@@ -454,7 +476,7 @@ input#restore {
         border-radius: 21px;
     }
 
-    .monitor-right {       
+    .monitor-right {
         border-left: 0px solid #0016ff;
     }
 

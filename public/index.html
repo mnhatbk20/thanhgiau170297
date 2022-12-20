@@ -14,7 +14,6 @@
 </head>
 
 <body>
-
     <div id="screen1">
         <div class="logo-wrapper">
             <div class="logo">
@@ -61,21 +60,22 @@
             <button id="login">
                 Đăng Nhập
             </button>
+            <div id="alert"></div>
 
         </div>
 
 
     </div>
     <div id="screen2" class="notlogin">
+        <div class="top-nav">
+            <button id="logout">Đăng Xuất</button>
+        </div>
         <div class="monitor">
-
             <div class="monitor-left">
                 <div class="panel">
                     <button id="start">Start</button>
                     <button id="stop">Stop</button>
                     <button id="reset">Reset</button>
-
-
 
                 </div>
 
@@ -86,7 +86,7 @@
                     <label for="angle">Góc nghiêng </label>
                     <input type="number" name="angle" id="angle" value="10" max="45" min="10"> độ
                     <input id="run" type="button" value="RUN">
-                   
+
                 </div>
                 <div id="move">
                     <label for="move">Di chuyển</label>
@@ -180,7 +180,7 @@
 
         const db = firebase.database();
     </script>
-    <script src="login.js"></script>
+    <script src="auth.js"></script>
     <script src="script.js"></script>
 </body>
 

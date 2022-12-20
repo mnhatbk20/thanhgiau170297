@@ -479,7 +479,6 @@ function drawFull(startTime,endTime){
 	Relayout()
 
 	$(".nav-item").each(function (index) {
-
 		$(this).click(function (e) {
 			e.preventDefault();
 			$('.detail-info-item').addClass('hide')
@@ -511,13 +510,11 @@ function getDone() {
 		$('.select-time-item input[name=endTime]').attr('value', `${maxLength}`)
 
 
-
-		CalculateData_S(data);
-		Draw([0, (maxLength - 1) * delayESP], [0, 1000], dataX1, dataY1, '', 'Thời gian (ms)', 'Tọa độ (mm)', 'chart1')
+		// CalculateData_S(data);
+		// Draw([0, (maxLength - 1) * delayESP], [0, 1000], dataX1, dataY1, '', 'Thời gian (ms)', 'Tọa độ (mm)', 'chart1')
 
 		var startTime = parseInt($('#startTime').val())
 		var endTime = parseInt($('#endTime').val())
-
 		drawFull(startTime,endTime)
 
 
@@ -527,17 +524,13 @@ function getDone() {
 			var endTime = parseInt($('#endTime').val())
 			drawFull(startTime,endTime)
 
-
 		});
 		var dataTable = []
 		dataTable.push(DataRow(function (i) { return (i * delayESP).toString() }, "Thời gian (ms)", stepPoint))
 		dataTable.push(DataRow(function (i) { return round(dataY1[i], 2) }, "Tọa độ (mm)", stepPoint))
 		createTable(dataTable, 'table');
 
-
 	});
-
-	console.log("done?");
 }
 
 
