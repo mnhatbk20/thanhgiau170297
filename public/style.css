@@ -11,7 +11,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
-    background-image: url('cropped-dustin-lee-jLwVAUtLOAQ-unsplash-scaled-2.jpg');
+    background-image: url('cover1.jpg');
 }
 
 #giaucute {
@@ -154,18 +154,32 @@ button#login {
 #screen1 .top{
     display: flex;
 }
-
-#logout {
+.top-nav button {
     text-align: right;
-    color: red;
     cursor: pointer;
     font-size: 0.7em;
     border-radius: 1em;
     background-color: #ffffff00;
-    border-color: red;
     width: fit-content;
     transition: all ease 0.5s;
     margin: 0.7em;
+    font-weight: bold;
+}
+#back{
+    color: green;
+    border-color: green;
+
+}
+#back:hover{
+    background-color: green;
+    color:white
+}
+
+
+#logout {
+    color: red;
+    border-color: red;
+
 }
 #logout:hover{
     background-color: red;
@@ -231,14 +245,17 @@ button#login {
 
 #screen2 .top-nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-bottom: 0.5em;
+    border-bottom: 1px solid #2272b7;
 }
 
 #screen2 {
     width: 100%;
     min-height: 100vh;
     background-color: #131313bd;
+    background-image: url(cover2.jpg);
+    background-blend-mode: color-burn;
 }
 #logo img {
     object-fit: contain;
@@ -332,10 +349,9 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     width: 100%;
 }
-
 .select-time input {
     width: 4rem;
 }
@@ -393,24 +409,25 @@ label {
 .nav-item:hover {
     background-color: #ffff37;
 }
-
 .monitor {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    /* height: 150px; */
     padding: 10px;
-    width: fit-content;
-    margin: auto;
-    border-radius: 10px;
+    width: 30em;
+    margin: 0.4em auto;
+    border-radius: 0.4em;
     background-color: lavender;
+    flex-wrap: wrap;
 }
-
+.monitor.hide{
+    display: none;
+}
 .monitor-left {
-    padding-right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 10%;
 }
 
 .monitor-right {
@@ -420,11 +437,9 @@ label {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    border-left: 1px solid #0016ff;
     font-size: 1em;
+    width: 70%;
 }
-
-
 .detail-info-item.hide {
     display: none;
     /* pointer-events: none; */
@@ -477,6 +492,7 @@ input#restore {
         height: unset;
         flex-direction: column;
         margin-bottom: 10px;
+        width: 90vw;
     }
 
     .nav-item {
@@ -592,9 +608,11 @@ input#restore {
 
     .monitor-right {
         border-left: 0px solid #0016ff;
+        width: 100%;
+        order: -1;
     }
 
     .nav-meas-item {
-        width: 100%;
+        width: 95vw;
     }
 }

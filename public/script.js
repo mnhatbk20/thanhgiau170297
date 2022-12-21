@@ -380,30 +380,26 @@ function Init() {
 
 var state = 0
 function ActiveNav() {
+
+	$("#back").click(function () {
+		state = 0
+		$('.monitor').addClass('hide')
+		$('.detail-info-item').addClass('hide')
+		$(".nav-meas-item").addClass('active')
+		$(".nav-data").addClass("hide")
+	})
 	$(".nav-meas-item").each(function (index) {
-		var sw = false
 
 		$(this).click(function (e) {
-
-
 			e.preventDefault();
+			state = index + 1
+			$('.monitor').removeClass('hide')
 
-			sw = !sw
-			if (sw == true) {
-
-				state = index + 1
-				$('.detail-info-item').addClass('hide')
-				$('.detail-info-item').eq(index).removeClass('hide')
-				$(".nav-meas-item").removeClass('active')
-				$(".nav-meas-item").eq(index).addClass('active')
-				$(".nav-data").removeClass("hide")
-			} else {
-				state = 0
-				$('.detail-info-item').addClass('hide')
-				$(".nav-meas-item").addClass('active')
-				$(".nav-data").addClass("hide")
-
-			}
+			$('.detail-info-item').addClass('hide')
+			$('.detail-info-item').eq(index).removeClass('hide')
+			$(".nav-meas-item").removeClass('active')
+			$(".nav-meas-item").eq(index).addClass('active')
+			$(".nav-data").removeClass("hide")
 
 			Relayout()
 
@@ -419,6 +415,7 @@ function ActiveNav() {
 	$(".nav-data-item").each(function (index) {
 		$(this).click(function (e) {
 			e.preventDefault();
+
 			$('.detail-info-item-child').addClass('hide')
 			console.log($(this).attr("data-name"))
 			$(`.${$(this).attr("data-name")}`).removeClass('hide')
