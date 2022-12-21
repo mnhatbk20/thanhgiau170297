@@ -165,20 +165,18 @@ button#login {
     margin: 0.7em;
     font-weight: bold;
 }
-#back{
-    color: green;
-    border-color: green;
-
+#back {
+    color: white;
+    border-color: white;
 }
 #back:hover{
     background-color: green;
     color:white
 }
 
-
 #logout {
-    color: red;
-    border-color: red;
+    color: white;
+    border-color: white;
 
 }
 #logout:hover{
