@@ -253,8 +253,8 @@ button#login {
 #screen2 {
     width: 100%;
     min-height: 100vh;
-    background-color: #131313bd;
-    background-image: url(cover2.jpg);
+    background-color: #292929fc;
+    /* background-image: url(cover2.jpg); */
     background-blend-mode: color-burn;
 }
 #logo img {
@@ -405,6 +405,7 @@ label {
 }
 #nav-meas-s {
     background-color: #26c06c;
+    order: 2;
 }
 .nav-item:hover {
     background-color: #ffff37;
@@ -417,7 +418,7 @@ label {
     width: 30em;
     margin: 0.4em auto;
     border-radius: 0.4em;
-    background-color: lavender;
+    background-color: white;
     flex-wrap: wrap;
 }
 .monitor.hide{
