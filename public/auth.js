@@ -17,6 +17,7 @@ $("button#login").click(function () {
     if ((username == "thanhgiau") && (password == "123456789")) {
         swScreen2()
         Cookies.set('login', 'true', { expires: 1, secure: true })
+        document.getElementsByTagName('audio')[0].play()
     }else{
         $("#alert").text("Đăng nhập thất bại")
         setTimeout(function(){
