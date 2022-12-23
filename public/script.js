@@ -11,8 +11,6 @@ var a = 0
 var v0 = 0
 var cof = []
 
-
-
 // const HH = 500-20-10
 // const H = 70
 // const MaxMotor = 10500
