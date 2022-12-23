@@ -7,7 +7,7 @@ $(document).ready(function () {
     }
     else {
         swScreen1()
-    }    
+    }
 });
 
 
@@ -18,17 +18,19 @@ $("button#login").click(function () {
         swScreen2()
         Cookies.set('login', 'true', { expires: 1, secure: true })
         document.getElementsByTagName('audio')[0].play()
-    }else{
+    } else {
         $("#alert").text("Đăng nhập thất bại")
-        setTimeout(function(){
+        setTimeout(function () {
             $("#alert").text("")
-        },5000)
+        }, 5000)
     }
 })
 
 $("button#logout").click(function () {
     swScreen1()
     Cookies.remove('login')
+    document.getElementsByTagName('audio')[0].pause();
+    document.getElementsByTagName('audio')[0].currentTime = 0;
 })
 
 function swScreen1() {
