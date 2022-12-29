@@ -15,7 +15,7 @@ var cof = []
 // const H = 70
 // const MaxMotor = 10500
 // const lengthSlide = 1000
-const HH = 900
+const HH = 400
 const H = 0
 const MaxMotor = 10500
 const lengthSlide = 1000
@@ -388,8 +388,6 @@ function Init() {
 			getDone();
 		}
 	});
-
-
 }
 
 
