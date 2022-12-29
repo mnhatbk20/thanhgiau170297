@@ -17,8 +17,11 @@ var cof = []
 // const lengthSlide = 1000
 const HH = 900
 const H = 0
-const MaxMotor = 2500
+const MaxMotor = 10500
 const lengthSlide = 1000
+
+var state
+var isHasData
 
 function setNewPos(angle) {
 	console.log(angle)
@@ -312,6 +315,10 @@ function Restore() {
 }
 
 function Init() {
+
+	var state = 0
+	var isHasData = false
+
 	$(".eq").hide();
 
 	$("#start").show()
@@ -374,9 +381,19 @@ function Init() {
 	$('.detail-info-item').addClass('hide')
 	ActiveNav()
 
+	var doneEvent = firebase.database().ref('states/done');
+	doneEvent.on('value', (snapshot) => {
+		let data = snapshot.val();
+		if (data == 1) {
+			getDone();
+		}
+	});
+
+
 }
 
-var state = 0
+
+
 function ActiveNav() {
 
 	$("#back").click(function () {
@@ -399,7 +416,9 @@ function ActiveNav() {
 			$(".nav-meas-item").eq(index).addClass('active')
 			$(".nav-data").removeClass("hide")
 
-			Relayout()
+			if (isHasData) {
+				Relayout()
+			}
 
 			if (state == 3) {
 				$("#nav-data-table").addClass("hide")
@@ -420,7 +439,9 @@ function ActiveNav() {
 
 			$(".nav-data-item").removeClass('active')
 			$(".nav-data-item").eq(index).addClass('active')
-			Relayout()
+			if (isHasData) {
+				Relayout()
+			}
 
 
 		});
@@ -447,16 +468,6 @@ var expectedX = []
 var expectedY = []
 
 Init();
-
-var doneEvent = firebase.database().ref('states/done');
-doneEvent.on('value', (snapshot) => {
-	let data = snapshot.val();
-	if (data == 1) {
-		getDone();
-	}
-
-
-});
 
 
 
@@ -553,6 +564,8 @@ function getDone() {
 	$("#stop").hide()
 
 	firebase.database().ref('/data').once('value').then((snapshot) => {
+
+		isHasData = true
 		let data = snapshot.val();
 		console.log(data)
 		data = data.split(",")
@@ -594,6 +607,9 @@ function getDone() {
 
 
 function getDoneMOCK() {
+
+	isHasData = true
+
 	$("#start").hide()
 	$("#reset").show();
 	$("#stop").hide()
